@@ -1,4 +1,5 @@
-import { selectArtistName, selectItuneData } from '../selectors';
+import { initialState } from '../reducer';
+import { selectArtistName, selectItuneData, selectSongContainerDomain } from '../selectors';
 
 describe('SongContainer selector tests', () => {
   let mockedState;
@@ -29,5 +30,10 @@ describe('SongContainer selector tests', () => {
   it('should select the ituneData state', () => {
     const ituneDataSelector = selectItuneData();
     expect(ituneDataSelector(mockedState)).toEqual(ituneData);
+  });
+
+  it('should select the global state', () => {
+    const globalSelector = selectSongContainerDomain(initialState);
+    expect(globalSelector).toEqual(initialState);
   });
 });
