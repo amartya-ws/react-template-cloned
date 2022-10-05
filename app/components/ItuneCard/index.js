@@ -16,11 +16,11 @@ const StyledCard = styled(Card)`
   }
 `;
 
-export function ItuneCard({ artistName, trackName, artWorkUrl100 }) {
+export function ItuneCard({ artistName, trackName, artworkUrl100 }) {
   const { Meta } = Card;
   return (
     <div data-testid="itune-card">
-      <StyledCard cover={<img alt={'cover image'} src={artWorkUrl100} data-testid="song-image" />}>
+      <StyledCard cover={<img alt={'cover image'} src={artworkUrl100} data-testid="song-image" />}>
         <Meta title={trackName} description={artistName} data-testid="song-detail" />
       </StyledCard>
     </div>
@@ -30,7 +30,7 @@ export function ItuneCard({ artistName, trackName, artWorkUrl100 }) {
 ItuneCard.propTypes = {
   artistName: PropTypes.string,
   trackName: PropTypes.string,
-  artWorkUrl100: PropTypes.string
+  artworkUrl100: PropTypes.string
 };
 
 export default ItuneCard;
