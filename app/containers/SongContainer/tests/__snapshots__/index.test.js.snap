@@ -3,15 +3,21 @@
 exports[`<SongContainer /> container tests should render and match the snapshot 1`] = `
 <body>
   <div>
-    <div>
-      <h3>
+    <div
+      class="SongContainer__Wrapper-sc-1lfsiot-1 kxaXNa"
+    >
+      <h2>
         Get itune song details
-      </h3>
+      </h2>
       <input
-        class="ant-input SongContainer__StyledInput-sc-1lfsiot-0 loJJPT"
+        class="ant-input SongContainer__StyledInput-sc-1lfsiot-0 kjxCWK"
+        data-testid="search-bar"
         placeholder="enter artist"
         type="text"
         value=""
+      />
+      <div
+        class="SongContainer__CardWrapper-sc-1lfsiot-2 dxqfgC"
       />
     </div>
   </div>
