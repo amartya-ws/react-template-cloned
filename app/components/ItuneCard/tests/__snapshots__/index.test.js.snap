@@ -13,7 +13,7 @@ exports[`<ItuneCard /> should render and match the snapshot 1`] = `
           class="ant-card-cover"
         >
           <img
-            alt="cover image"
+            alt="song cover"
             class="ItuneCard__StyledImg-sc-1fg0mgb-1 fpRYqQ"
             data-testid="song-image"
           />
@@ -24,7 +24,22 @@ exports[`<ItuneCard /> should render and match the snapshot 1`] = `
           <div
             class="ant-card-meta"
             data-testid="song-detail"
-          />
+          >
+            <div
+              class="ant-card-meta-detail"
+            >
+              <div
+                class="ant-card-meta-title"
+              >
+                not found
+              </div>
+              <div
+                class="ant-card-meta-description"
+              >
+                not found
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

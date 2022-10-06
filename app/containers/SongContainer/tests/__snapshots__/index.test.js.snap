@@ -6,9 +6,12 @@ exports[`<SongContainer /> container tests should render and match the snapshot 
     <div
       class="SongContainer__Wrapper-sc-1lfsiot-1 kxaXNa"
     >
-      <h2>
+      <p
+        class="T__StyledText-gjlic1-0 demndm"
+        data-testid="t"
+      >
         Get itune song details
-      </h2>
+      </p>
       <input
         class="ant-input SongContainer__StyledInput-sc-1lfsiot-0 kjxCWK"
         data-testid="search-bar"
