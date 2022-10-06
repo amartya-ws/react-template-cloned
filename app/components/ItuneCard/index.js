@@ -12,7 +12,14 @@ import { Card } from 'antd';
 const StyledCard = styled(Card)`
   && {
     width: 15rem;
-    min-height: content;
+    min-height: 20rem;
+  }
+`;
+
+const StyledImg = styled.img`
+  && {
+    max-height: 14.5rem;
+    object-fit: cover;
   }
 `;
 
@@ -20,7 +27,7 @@ export function ItuneCard({ artistName, trackName, artworkUrl100 }) {
   const { Meta } = Card;
   return (
     <div data-testid="itune-card">
-      <StyledCard cover={<img alt={'cover image'} src={artworkUrl100} data-testid="song-image" />}>
+      <StyledCard cover={<StyledImg alt={'cover image'} src={artworkUrl100} data-testid="song-image" />}>
         <Meta title={trackName} description={artistName} data-testid="song-detail" />
       </StyledCard>
     </div>
