@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
@@ -46,6 +46,7 @@ const CardWrapper = styled.div`
 `;
 
 export function SongContainer({ artistName, ituneData, dispatchItuneSongs, dispatchClearSongs }) {
+  const [currentSongId, setCurrentSongId] = useState(0);
   const changeHandler = (searchTerm) => {
     if (searchTerm) {
       dispatchItuneSongs(searchTerm);
@@ -62,7 +63,9 @@ export function SongContainer({ artistName, ituneData, dispatchItuneSongs, dispa
         <For
           of={songs}
           ParentComponent={CardWrapper}
-          renderItem={(item, index) => <ItuneCard key={index} {...item} />}
+          renderItem={(item, index) => (
+            <ItuneCard key={index} {...item} currentSongId={currentSongId} setCurrentSongId={setCurrentSongId} />
+          )}
         />
       </>
     );
