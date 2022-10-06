@@ -20,10 +20,14 @@ describe('<ItuneCard />', () => {
   });
 
   it('should render itune song details inside the card', () => {
-    let artistName = 'eminem';
-    let trackName = 'Till I Collapse (feat. Nate Dogg)';
-    let url =
-      'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b4/13/e9/b413e91d-40aa-a1a8-b8e3-2bacc3b3e222/00606949329020.rgb.jpg/100x100bb.jpg';
+    const data = {
+      artistName: 'eminem',
+      trackName: 'Till I Collapse (feat. Nate Dogg)',
+      url: 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b4/13/e9/b413e91d-40aa-a1a8-b8e3-2bacc3b3e222/00606949329020.rgb.jpg/100x100bb.jpg'
+    };
+
+    const { artistName, trackName, url } = data;
+
     const { getByTestId } = renderWithIntl(
       <ItuneCard artistName={artistName} trackName={trackName} artworkUrl100={url} />
     );

@@ -11,14 +11,16 @@ import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { injectSaga } from 'redux-injectors';
-import { selectItuneData, selectArtistName } from './selectors';
 import { Input } from 'antd';
-import ItuneCard from '@app/components/ItuneCard';
-import { songContainerCreators } from './reducer';
-import For from '@app/components/For';
-import saga from './saga';
 import get from 'lodash/get';
+import debounce from 'lodash/debounce';
 import styled from 'styled-components';
+import For from '@app/components/For';
+import T from '@components/T';
+import ItuneCard from '@app/components/ItuneCard';
+import { selectItuneData, selectArtistName } from './selectors';
+import { songContainerCreators } from './reducer';
+import saga from './saga';
 
 const StyledInput = styled(Input)`
   && {
@@ -44,14 +46,14 @@ const CardWrapper = styled.div`
 `;
 
 export function SongContainer({ artistName, ituneData, dispatchItuneSongs, dispatchClearSongs }) {
-  const changeHandler = (evt) => {
-    let searchTerm = evt.target.value;
+  const changeHandler = (searchTerm) => {
     if (searchTerm) {
       dispatchItuneSongs(searchTerm);
     } else {
       dispatchClearSongs();
     }
   };
+  const debouncedHandler = debounce(changeHandler, 500);
 
   const renderSongList = () => {
     let songs = get(ituneData, 'results', null);
@@ -68,13 +70,13 @@ export function SongContainer({ artistName, ituneData, dispatchItuneSongs, dispa
 
   return (
     <Wrapper>
-      <h2>Get itune song details</h2>
+      <T id="get_song_details" marginBottom={10} />
       <StyledInput
         placeholder="enter artist"
-        onChange={changeHandler}
-        value={artistName}
+        defaultValue={artistName}
         type="text"
         data-testid="search-bar"
+        onChange={(evt) => debouncedHandler(evt.target.value)}
       />
       <CardWrapper>{renderSongList()}</CardWrapper>
     </Wrapper>

@@ -27,8 +27,8 @@ export function ItuneCard({ artistName, trackName, artworkUrl100 }) {
   const { Meta } = Card;
   return (
     <div data-testid="itune-card">
-      <StyledCard cover={<StyledImg alt={'cover image'} src={artworkUrl100} data-testid="song-image" />}>
-        <Meta title={trackName} description={artistName} data-testid="song-detail" />
+      <StyledCard cover={<StyledImg alt={'song cover'} src={artworkUrl100} data-testid="song-image" />}>
+        <Meta title={trackName ?? 'not found'} description={artistName ?? 'not found'} data-testid="song-detail" />
       </StyledCard>
     </div>
   );
