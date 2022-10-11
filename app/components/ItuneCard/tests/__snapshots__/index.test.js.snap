@@ -7,7 +7,7 @@ exports[`<ItuneCard /> should render and match the snapshot 1`] = `
       data-testid="itune-card"
     >
       <div
-        class="ant-card ant-card-bordered ItuneCard__StyledCard-sc-1fg0mgb-0 lbzofK"
+        class="ant-card ant-card-bordered ItuneCard__StyledCard-sc-1fg0mgb-0 dKWoDG"
       >
         <div
           class="ant-card-cover"
@@ -40,6 +40,14 @@ exports[`<ItuneCard /> should render and match the snapshot 1`] = `
               </div>
             </div>
           </div>
+          <audio
+            class="ItuneCard__StyledAudio-sc-1fg0mgb-2 dwopvO"
+            controls=""
+            controlslist="nodownload noplaybackrate"
+            data-testid="preview-audio"
+          >
+            Audio preview
+          </audio>
         </div>
       </div>
     </div>

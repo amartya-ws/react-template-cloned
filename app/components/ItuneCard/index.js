@@ -3,16 +3,15 @@
  * ItuneCard
  *
  */
-
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Card } from 'antd';
 
 const StyledCard = styled(Card)`
   && {
-    width: 15rem;
-    min-height: 20rem;
+    width: 18rem;
+    min-height: 21rem;
   }
 `;
 
@@ -23,12 +22,50 @@ const StyledImg = styled.img`
   }
 `;
 
-export function ItuneCard({ artistName, trackName, artworkUrl100 }) {
+const StyledAudio = styled.audio`
+  && {
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 1rem;
+  }
+`;
+
+export function ItuneCard({
+  artistName,
+  trackName,
+  artworkUrl100,
+  previewUrl,
+  currentSongId,
+  setCurrentSongId,
+  trackId
+}) {
   const { Meta } = Card;
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (currentSongId !== trackId) {
+      audioRef.current.pause();
+    }
+  }, [currentSongId]);
+
+  const playHandler = () => {
+    setCurrentSongId(trackId);
+  };
+
   return (
     <div data-testid="itune-card">
       <StyledCard cover={<StyledImg alt={'song cover'} src={artworkUrl100} data-testid="song-image" />}>
         <Meta title={trackName ?? 'not found'} description={artistName ?? 'not found'} data-testid="song-detail" />
+        <StyledAudio
+          data-testid="preview-audio"
+          controls
+          src={previewUrl}
+          ref={audioRef}
+          onPlay={playHandler}
+          controlsList="nodownload noplaybackrate"
+        >
+          Audio preview
+        </StyledAudio>
       </StyledCard>
     </div>
   );
@@ -37,7 +74,11 @@ export function ItuneCard({ artistName, trackName, artworkUrl100 }) {
 ItuneCard.propTypes = {
   artistName: PropTypes.string,
   trackName: PropTypes.string,
-  artworkUrl100: PropTypes.string
+  artworkUrl100: PropTypes.string,
+  previewUrl: PropTypes.string,
+  currentSongId: PropTypes.number,
+  setCurrentSongId: PropTypes.func,
+  trackId: PropTypes.number
 };
 
 export default ItuneCard;
