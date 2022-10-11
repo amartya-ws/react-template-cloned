@@ -14,5 +14,7 @@
   "repository_stars": "Repository stars: {stars}",
   "repo_stars_unavailable": "Repository stars are unavaiable",
   "wednesday_solutions": "Wednesday Solutions",
-  "get_song_details": "Get itune song details"
+  "get_song_details": "Get itune song details",
+  "artist_name": "Artist name : {artistName}",
+  "track_name": "Track name : {trackName}"
 }

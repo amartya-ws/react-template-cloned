@@ -9,6 +9,14 @@ import { fireEvent } from '@testing-library/dom';
 import { renderWithIntl, timeout } from '@utils/testUtils';
 import ItuneCard from '../index';
 
+const mockHistoryPush = jest.fn();
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory: () => ({
+    push: mockHistoryPush
+  })
+}));
+
 describe('<ItuneCard />', () => {
   it('should render and match the snapshot', () => {
     const { baseElement } = renderWithIntl(<ItuneCard />);
@@ -18,6 +26,16 @@ describe('<ItuneCard />', () => {
   it('should contain 1 ItuneCard component', () => {
     const { getAllByTestId } = renderWithIntl(<ItuneCard />);
     expect(getAllByTestId('itune-card').length).toBe(1);
+  });
+
+  it('should redirect to song details page on click', async () => {
+    let trackId = 12345;
+    const { getByTestId } = renderWithIntl(<ItuneCard trackId={trackId} />);
+    let ituneCard = getByTestId('itune-card');
+    fireEvent.click(ituneCard);
+
+    await timeout(500);
+    expect(mockHistoryPush).toBeCalledWith(`/song/${trackId}`);
   });
 
   it('should render itune song details inside the card', () => {
