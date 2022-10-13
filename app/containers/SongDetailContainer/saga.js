@@ -9,6 +9,7 @@ const { successGetSingleItune } = songDetailContainerCreators;
 export function* getItune(action) {
   const response = yield call(getSingleItune, action.trackId);
   const { data, ok } = response;
+  /* istanbul ignore else */
   if (ok) {
     yield put(successGetSingleItune(data));
   }
