@@ -22,7 +22,7 @@ import { songDetailContainerCreators } from './reducer';
 
 const DetailsCard = styled.div`
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 0.65rem;
   padding: 1rem;
   width: 70%;
   height: 15rem;
