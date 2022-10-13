@@ -4,7 +4,7 @@ exports[`<SongDetailContainer /> container tests should render and match the sna
 <body>
   <div>
     <div
-      class="SongDetailContainer__DetailsCard-sc-1v7fg8-0 liHVEB"
+      class="SongDetailContainer__DetailsCard-sc-1v7fg8-0 bLUqvP"
     >
       <img
         data-testid="song-image"
