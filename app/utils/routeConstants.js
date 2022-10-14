@@ -14,5 +14,8 @@ export default {
       padding: 20
     },
     exact: true
+  },
+  song: {
+    route: '/song/:trackId'
   }
 };

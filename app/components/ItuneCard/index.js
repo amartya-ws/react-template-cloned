@@ -6,6 +6,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
 
 const StyledCard = styled(Card)`
@@ -41,6 +42,7 @@ export function ItuneCard({
 }) {
   const { Meta } = Card;
   const audioRef = useRef(null);
+  const history = useHistory();
 
   useEffect(() => {
     if (currentSongId !== trackId) {
@@ -52,8 +54,12 @@ export function ItuneCard({
     setCurrentSongId(trackId);
   };
 
+  const clickHandler = () => {
+    history.push(`/song/${trackId}`);
+  };
+
   return (
-    <div data-testid="itune-card">
+    <div data-testid="itune-card" onClick={clickHandler}>
       <StyledCard cover={<StyledImg alt={'song cover'} src={artworkUrl100} data-testid="song-image" />}>
         <Meta title={trackName ?? 'not found'} description={artistName ?? 'not found'} data-testid="song-detail" />
         <StyledAudio

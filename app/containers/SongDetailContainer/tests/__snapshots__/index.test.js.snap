@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SongDetailContainer /> container tests should render and match the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="SongDetailContainer__DetailsCard-sc-1v7fg8-0 bLUqvP"
+    >
+      <img
+        data-testid="song-image"
+      />
+      <div>
+        <p
+          class="T__StyledText-gjlic1-0 kYTaGb"
+          data-testid="artist-name"
+        >
+          Artist name : 
+        </p>
+        <p
+          class="T__StyledText-gjlic1-0 kYTaGb"
+          data-testid="track-name"
+        >
+          Track name : 
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
