@@ -15,6 +15,10 @@ export default {
     },
     exact: true
   },
+  newHomePath: {
+    route: '/new-home-path',
+    exact: true
+  },
   song: {
     route: '/song/:trackId'
   }
