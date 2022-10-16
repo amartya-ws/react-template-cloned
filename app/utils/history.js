@@ -5,7 +5,7 @@ import routeConstants from '@utils/routeConstants';
 export function getBaseName() {
   if (isProd()) {
     // GH Pages
-    return '/react-template';
+    return '/';
   }
   if (isUAT()) {
     return `/${process.env.BRANCH_NAME}`;
