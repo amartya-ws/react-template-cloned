@@ -38,6 +38,14 @@ export function App({ location, history }) {
     <ThemeProvider theme={theme}>
       <Header />
       <Layout.Content>
+        <button
+          style={{ margin: '20px' }}
+          onClick={() => {
+            history.push(routeConfig.newHomePath.route);
+          }}
+        >
+          Go to the new route
+        </button>
         <For
           ParentComponent={(props) => <Switch {...props} />}
           of={map(Object.keys(routeConfig))}
